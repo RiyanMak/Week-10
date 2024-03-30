@@ -27,7 +27,11 @@ void swap(string& a, string& b) {
 
 int main() {
     const int SIZE = 20;
-    string name[SIZE] = {"Collins, Bill", "Smith, Bart", "Michalski, Joe", "Griffin, Jim", "Sanchez, Manny", "Rubin, Sarah", "Taylor, Tyrone", "Johnson, Jill", "Allison, Jeff", "Conroy, Pat", "Harrison, Rose", "Holland, Beth", "Kelly, Sean", "Moreno, Juan", "Moretti, Bella", "Patel, Renee", "Smith, Cathy", "Whitman, Jean", "Wolfe, Bill", "Wu, Eric"};
+    string name[SIZE] = {"Collins, Bill", "Smith, Bart", "Michalski, Joe", 
+    "Griffin, Jim", "Sanchez, Manny", "Rubin, Sarah", "Taylor, Tyrone", 
+    "Johnson, Jill", "Allison, Jeff", "Conroy, Pat", "Harrison, Rose", 
+    "Holland, Beth", "Kelly, Sean", "Moreno, Juan", "Moretti, Bella",
+    "Patel, Renee", "Smith, Cathy", "Whitman, Jean", "Wolfe, Bill", "Wu, Eric"};
 
     selectionSort(name, SIZE);
     displayNames(name, SIZE);
