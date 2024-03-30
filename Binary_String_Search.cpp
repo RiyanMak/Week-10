@@ -10,8 +10,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <algorithm>
-
 using namespace std;
 
 void selectionSort(string[], int);
