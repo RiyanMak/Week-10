@@ -19,6 +19,12 @@ string upperCaseIt(const string&);
 void displayNames(const string[], int);
 bool binarySearch(const string[], int, string);
 
+void swap(string& a, string& b) {
+    string temp = a;
+    a = b;
+    b = temp;
+}
+
 int main() {
     const int SIZE = 20;
     string name[SIZE] = {"Collins, Bill", "Smith, Bart", "Michalski, Joe", "Griffin, Jim", "Sanchez, Manny", "Rubin, Sarah", "Taylor, Tyrone", "Johnson, Jill", "Allison, Jeff", "Conroy, Pat", "Harrison, Rose", "Holland, Beth", "Kelly, Sean", "Moreno, Juan", "Moretti, Bella", "Patel, Renee", "Smith, Cathy", "Whitman, Jean", "Wolfe, Bill", "Wu, Eric"};
