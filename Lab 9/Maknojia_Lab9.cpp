@@ -65,7 +65,7 @@ void displayPlaylist(const Song playlist[], int size) {
 }
 
 int main() {
-    const int PLAYLIST_SIZE = 4;
+    const int PLAYLIST_SIZE = 10;
     Song playlist[PLAYLIST_SIZE];
 
     // Get song data from the user
