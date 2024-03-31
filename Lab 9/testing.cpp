@@ -1,35 +1,41 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
+// Structure to represent a song
+struct Song {
+    string artist;
+    string title;
+};
+
 // Function to get song data from the user
-void getSongData(string artists[], string titles[], int size) {
+void getSongData(Song playlist[], int size) {
     for (int i = 0; i < size; i++) {
         cout << "Enter artist for song " << i + 1 << ": ";
-        getline(cin, artists[i]);
+        getline(cin, playlist[i].artist);
 
         cout << "Enter title for song " << i + 1 << ": ";
-        getline(cin, titles[i]);
+        getline(cin, playlist[i].title);
     }
 }
 
-// Function to swap two strings
-void swapStrings(string &a, string &b) {
-    string temp = a;
+// Function to swap two songs
+void swapSongs(Song &a, Song &b) {
+    Song temp = a;
     a = b;
     b = temp;
 }
 
 // Function to sort the playlist using bubble sort
-void sortPlaylist(string artists[], string titles[], int size) {
+void sortPlaylist(Song playlist[], int size) {
     bool madeAswap = true;
     for (int maxElement = size - 1; maxElement > 0 && madeAswap; maxElement--) {
         madeAswap = false;
         for (int i = 0; i < maxElement; i++) {
-            if (artists[i] > artists[i + 1]) {
-                swapStrings(artists[i], artists[i + 1]);
-                swapStrings(titles[i], titles[i + 1]); // Swap titles along with artists
+            if (playlist[i].artist > playlist[i + 1].artist) {
+                swapSongs(playlist[i], playlist[i + 1]);
                 madeAswap = true;
             }
         }
@@ -37,29 +43,28 @@ void sortPlaylist(string artists[], string titles[], int size) {
 }
 
 // Function to display the sorted playlist
-void displayPlaylist(const string artists[], const string titles[], int size) {
-    cout << "Playlist";
-    cout << "Artist                        Title";
-    cout << "======================================";
+void displayPlaylist(const Song playlist[], int size) {
+    cout << "Playlist\n";
+    cout << "Artist                        Title \n";
+    cout << "======================================\n";
     for (int i = 0; i < size; i++) {
-        cout << setw(30) << left << artists[i]
-                  << setw(20) << left << titles[i] << endl;
+        cout << setw(30) << left << playlist[i].artist
+             << setw(20) << left << playlist[i].title << endl;
     }
 }
 
 int main() {
-    const int PLAYLIST_SIZE = 10;
-    string artists[PLAYLIST_SIZE];
-    string titles[PLAYLIST_SIZE];
+    const int PLAYLIST_SIZE = 4;
+    Song playlist[PLAYLIST_SIZE];
 
     // Get song data from the user
-    getSongData(artists, titles, PLAYLIST_SIZE);
+    getSongData(playlist, PLAYLIST_SIZE);
 
     // Sort the playlist
-    sortPlaylist(artists, titles, PLAYLIST_SIZE);
+    sortPlaylist(playlist, PLAYLIST_SIZE);
 
     // Display the sorted playlist
-    displayPlaylist(artists, titles, PLAYLIST_SIZE);
+    displayPlaylist(playlist, PLAYLIST_SIZE);
 
     return 0;
 }
