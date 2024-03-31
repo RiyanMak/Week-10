@@ -7,17 +7,21 @@
 // This program demonstrates the use of sort and display the strings 
 // before the array is searched for values.
 //******************************************************************
+
+// Include necessary headers
 #include <iostream>
 #include <string>
 #include <cctype>
 using namespace std;
 
+// Function prototypes
 void selectionSort(string[], int);
 string upperCaseIt(const string&);
 void displayNames(const string[], int);
 bool binarySearch(const string[], int, string);
 
 void swap(string& a, string& b) {
+    // Swap function to swap two strings
     string temp = a;
     a = b;
     b = temp;
@@ -25,15 +29,19 @@ void swap(string& a, string& b) {
 
 int main() {
     const int SIZE = 20;
-    string name[SIZE] = {"Collins, Bill", "Smith, Bart", "Michalski, Joe", 
-    "Griffin, Jim", "Sanchez, Manny", "Rubin, Sarah", "Taylor, Tyrone", 
-    "Johnson, Jill", "Allison, Jeff", "Conroy, Pat", "Harrison, Rose", 
-    "Holland, Beth", "Kelly, Sean", "Moreno, Juan", "Moretti, Bella",
-    "Patel, Renee", "Smith, Cathy", "Whitman, Jean", "Wolfe, Bill", "Wu, Eric"};
+    // Array of names
+    string name[SIZE] =
+     {"Collins, Bill", "Smith, Bart", "Michalski, Joe", "Griffin, Jim", 
+    "Sanchez, Manny", "Rubin, Sarah", "Taylor, Tyrone", "Johnson, Jill", "Allison, Jeff", 
+    "Conroy, Pat", "Harrison, Rose", "Holland, Beth", "Kelly, Sean", "Moreno, Juan", 
+    "Moretti, Bella", "Patel, Renee", "Smith, Cathy", "Whitman, Jean", "Wolfe, Bill", "Wu, Eric"};
 
+    // Sort the names using selection sort
     selectionSort(name, SIZE);
+    // Display the sorted names
     displayNames(name, SIZE);
 
+    // Search for a name in the sorted array
     string searchName1 = "Wolfe, Bill";
     bool found1 = binarySearch(name, SIZE, searchName1);
     cout << "Searching for " << searchName1 << " ... ";
@@ -43,6 +51,7 @@ int main() {
         cout << searchName1 << " was NOT found in the array." << endl;
     }
 
+    // Search for a name that is not in the array
     string searchName2 = "Big Bad Wolf";
     bool found2 = binarySearch(name, SIZE, searchName2);
     cout << "Searching for " << searchName2 << "... ";
@@ -52,12 +61,11 @@ int main() {
         cout << searchName2 << " was NOT found in the array." << endl;
     }
 
-    cout << "*/" << endl;
-
     return 0;
 }
 
 void selectionSort(string name[], int size) {
+    // Selection sort algorithm to sort the names
     int minIndex;
     string minValue;
     for (int start = 0; start < (size - 1); start++) {
@@ -74,6 +82,7 @@ void selectionSort(string name[], int size) {
 }
 
 string upperCaseIt(const string& str) {
+    // Function to convert a string to uppercase
     string upperStr;
     for (char c : str) {
         upperStr += toupper(c);
@@ -82,6 +91,7 @@ string upperCaseIt(const string& str) {
 }
 
 void displayNames(const string names[], int size) {
+    // Function to display the sorted names
     cout << "The names in sorted order are:" << endl;
     for (int i = 0; i < size; i++) {
         cout << names[i] << endl;
@@ -89,6 +99,7 @@ void displayNames(const string names[], int size) {
 }
 
 bool binarySearch(const string names[], int size, string value) {
+    // Binary search algorithm to search for a name in the sorted array
     string upperValue = upperCaseIt(value);
     int first = 0, last = size - 1, middle;
     bool found = false;
